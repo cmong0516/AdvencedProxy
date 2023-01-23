@@ -29,7 +29,10 @@ import org.springframework.context.annotation.Import;
 //@Import(BeanPostProcessorConfig.class)
 //@Import(AutoProxyConfig.class)
 //@Import(AopConfig.class)
-@SpringBootApplication(scanBasePackages = "hello.proxy.app") //주의
+@SpringBootApplication(scanBasePackages = "hello.proxy.app")
+// 주의
+// @Configuration 은 @Component 에노태이션을 포함하고 있으므로 컴포넌트 스캔의 대상이 된다.
+// 따라서 컴포넌트 스캔의 시작위치를 hello.proxy.app 으로 지정.
 public class ProxyApplication {
 
 	public static void main(String[] args) {
