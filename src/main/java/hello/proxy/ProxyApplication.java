@@ -18,8 +18,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
-@Import(AppV1Config.class)
-//@Import({AppV1Config.class, AppV2Config.class})
+//@Import(AppV1Config.class)
+@Import({AppV1Config.class, AppV2Config.class})
 //@Import(InterfaceProxyConfig.class)
 //@Import(ConcreteProxyConfig.class)
 //@Import(DynamicProxyBasicConfig.class)
