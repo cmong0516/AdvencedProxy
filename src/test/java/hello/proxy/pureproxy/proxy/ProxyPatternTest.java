@@ -30,8 +30,11 @@ public class ProxyPatternTest {
         //
         // 3. 프록시 호출 -> 데이터 있음
         // 4. 프록시 호출 -> 데이터 있음
+
         client.execute();
         client.execute();
         client.execute();
+
+        // 프록시가 인터페이스가 아닌 RealSubject class 에 의존하고 있는데 ㅇㅅㅇ
     }
 }

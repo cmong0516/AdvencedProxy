@@ -23,4 +23,5 @@ public class TimeDecorator implements Component {
         log.info("TimeDecorator 종료 resultTime={}ms", resultTime);
         return result;
     }
+    // LogTrace 는 Decorator Pattern
 }
