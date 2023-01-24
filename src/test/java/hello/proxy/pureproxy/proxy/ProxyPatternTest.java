@@ -25,6 +25,11 @@ public class ProxyPatternTest {
         ProxyPatternClient client = new ProxyPatternClient(cacheProxy);
 
         // client    -->   cacheProxy      -->     RealSubject
+        // 1. 프록시 호출 -> 데이터 없음
+        // 2. 실제 객체 호출
+        //
+        // 3. 프록시 호출 -> 데이터 있음
+        // 4. 프록시 호출 -> 데이터 있음
         client.execute();
         client.execute();
         client.execute();
