@@ -11,6 +11,8 @@ public class OrderServiceConcreteProxy extends OrderServiceV2 {
 
     public OrderServiceConcreteProxy(OrderServiceV2 target, LogTrace logTrace) {
         super(null);
+        // OrderServiceV2 의 기본생성자가 없기 때문에 null
+        // interface implements 와 class extends 차이점.
         this.target = target;
         this.logTrace = logTrace;
     }
