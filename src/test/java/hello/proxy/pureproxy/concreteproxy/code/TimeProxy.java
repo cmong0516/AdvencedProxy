@@ -25,3 +25,5 @@ public class TimeProxy extends ConcreteLogic {
     }
 
 }
+
+// 다형성을 이용하여 ConcreteLogic 으로 클래스가 같은걸 이용한다.
