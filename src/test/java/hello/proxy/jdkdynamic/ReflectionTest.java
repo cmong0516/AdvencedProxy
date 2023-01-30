@@ -24,6 +24,8 @@ public class ReflectionTest {
         String result2 = target.callB(); //호출하는 메서드가 다음
         log.info("result={}", result2);
         //공통 로직2 종료
+
+        // 일반적인 클래스의 메서드 호출
     }
 
     @Test
@@ -34,6 +36,7 @@ public class ReflectionTest {
         Hello target = new Hello();
         //callA 메서드 정보
         Method methodCallA = classHello.getMethod("callA");
+
         Object result1 = methodCallA.invoke(target);
         log.info("result1={}", result1);
 
