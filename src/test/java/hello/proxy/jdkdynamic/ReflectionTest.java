@@ -57,6 +57,9 @@ public class ReflectionTest {
 
         Method methodCallB = classHello.getMethod("callB");
         dynamicCall(methodCallB, target);
+
+        // invoke
+        // 멀티스레드 환겨에서 데이터 보호를 위해 사용
     }
 
     private void dynamicCall(Method method, Object target) throws Exception {
