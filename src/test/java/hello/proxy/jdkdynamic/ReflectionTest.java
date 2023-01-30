@@ -33,6 +33,8 @@ public class ReflectionTest {
         //클래스 정보
         Class classHello = Class.forName("hello.proxy.jdkdynamic.ReflectionTest$Hello");
 
+        System.out.println("classHello = " + classHello);
+
         Hello target = new Hello();
         //callA 메서드 정보
         Method methodCallA = classHello.getMethod("callA");
@@ -56,10 +58,15 @@ public class ReflectionTest {
         dynamicCall(methodCallA, target);
 
         Method methodCallB = classHello.getMethod("callB");
-        dynamicCall(methodCallB, target);
+        dynamicCall(methodCallB,target);
 
         // invoke
         // 멀티스레드 환겨에서 데이터 보호를 위해 사용
+
+//        Method methodCallC = classHello.getMethod("callC");
+//        System.out.println("methodCallC = " + methodCallC);
+        // NoSuchMethodException
+        // reflection 은 컴파일 시점에서 에러를 잡을수가 없어서 사용을 권장하지 않는다.
     }
 
     private void dynamicCall(Method method, Object target) throws Exception {
