@@ -27,6 +27,7 @@ public class ProxyFactoryTest {
         log.info("proxyClass={}", proxy.getClass());
 
         proxy.save();
+        proxy.find();
 
         assertThat(AopUtils.isAopProxy(proxy)).isTrue();
         assertThat(AopUtils.isJdkDynamicProxy(proxy)).isTrue();
