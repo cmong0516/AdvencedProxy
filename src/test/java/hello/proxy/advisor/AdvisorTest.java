@@ -47,6 +47,14 @@ public class AdvisorTest {
         proxy.find();
     }
 
+    // save
+    // result = true
+    // TimeProxy 실행 , 메서드 호출 , 프록시 종료
+
+    // find
+    // result = false
+    // 메서드 호출
+
     @Test
     @DisplayName("스프링이 제공하는 포인트컷")
     void advisorTest3() {
@@ -99,3 +107,7 @@ public class AdvisorTest {
     }
 
 }
+
+// Pointcut 의 구현체를 만든다
+// Pointcut 의 getMethodMatcher() 메서드의 반환값으로 MethodMatcher 의 구현체를 만들어 반환한다.
+// isRuntime 이 ture -> args 가 포함된 메서드 실행 , false -> 정적인 메서드 실행.
