@@ -17,7 +17,10 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 public class ProxyFactoryConfigV2 {
-
+    // interface 가 없는 -> CGLIB 를 활용한 프록시.
+    // ProxyFactory proxy=class hello.proxy.app.v2.OrderRepositoryV2$$EnhancerBySpringCGLIB$$cccfc75c, target=class hello.proxy.app.v2.OrderRepositoryV2
+    // ProxyFactory proxy=class hello.proxy.app.v2.OrderServiceV2$$EnhancerBySpringCGLIB$$211ff57f, target=class hello.proxy.app.v2.OrderServiceV2
+    // ProxyFactory proxy=class hello.proxy.app.v2.OrderControllerV2$$EnhancerBySpringCGLIB$$ced6ee12, target=class hello.proxy.app.v2.OrderControllerV2
     @Bean
     public OrderControllerV2 orderControllerV2(LogTrace logTrace) {
         OrderControllerV2 orderController = new OrderControllerV2(orderServiceV2(logTrace));

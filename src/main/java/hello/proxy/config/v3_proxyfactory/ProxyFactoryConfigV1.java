@@ -14,6 +14,11 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 public class ProxyFactoryConfigV1 {
+    // interface 가 있는 프록시생성.
+
+    //ProxyFactory proxy=class com.sun.proxy.$Proxy51, target=class hello.proxy.app.v1.OrderRepositoryV1Impl
+    //ProxyFactory proxy=class com.sun.proxy.$Proxy53, target=class hello.proxy.app.v1.OrderServiceV1Impl
+    //ProxyFactory proxy=class com.sun.proxy.$Proxy54, target=class hello.proxy.app.v1.OrderControllerV1Impl
 
     @Bean
     public OrderControllerV1 orderControllerV1(LogTrace logTrace) {
