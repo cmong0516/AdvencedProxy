@@ -12,17 +12,20 @@ import org.springframework.aop.Pointcut;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
-
-import java.awt.*;
 import java.lang.reflect.Method;
 
 @Slf4j
 public class AdvisorTest {
+    // 포인트컷 : 어디에
+    // 어드바이스 : 기능
+    // 어드바이저 : 포인트컷 + 어드바이스
 
     @Test
     void advisorTest1() {
         ServiceInterface target = new ServiceImpl();
         ProxyFactory proxyFactory = new ProxyFactory(target);
+        // DefaultPointcutAdvisor 는 Advisor 의 가장 일반적인 구현체.
+        // Pointcut 과 어드바이스 를 넣어준다.
         DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(Pointcut.TRUE, new TimeAdvice());
         proxyFactory.addAdvisor(advisor);
         ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();
