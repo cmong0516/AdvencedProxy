@@ -13,6 +13,8 @@ public class BasicTest {
 
     @Test
     void basicConfig() {
+        // 스프링 컨테이너 생성
+        // BasicConfig 를 살펴보면 beanA 라는 이름으로 A 객체를 반환한다.
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BasicConfig.class);
 
         //A는 빈으로 등록된다.

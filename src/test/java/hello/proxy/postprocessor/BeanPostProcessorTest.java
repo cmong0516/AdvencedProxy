@@ -18,8 +18,11 @@ public class BeanPostProcessorTest {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanPostProcessorConfig.class);
 
         //beanA 이름으로 B 객체가 빈으로 등록된다.
-        B b = applicationContext.getBean("beanA", B.class);
-        b.helloB();
+//        B b = applicationContext.getBean("beanA", B.class);
+//        b.helloB();
+        C c = applicationContext.getBean("beanA", C.class);
+        c.helloC();
+        // AtoB 외에 BtoC 를 추가생성하여 beanA 라는 이름의 빈 객체를 A -> B -> C 를 통해 C 가 반환되게 바꾸었다.
 
         //A는 빈으로 등록되지 않는다.
         Assertions.assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(A.class));
@@ -36,6 +39,11 @@ public class BeanPostProcessorTest {
         @Bean
         public AToBPostProcessor helloPostProcessor() {
             return new AToBPostProcessor();
+        }
+
+        @Bean
+        public BToCPostProcessor bToCPostProcessor() {
+            return new BToCPostProcessor();
         }
     }
 
@@ -54,6 +62,14 @@ public class BeanPostProcessorTest {
     }
 
     @Slf4j
+    static class C {
+        public void helloC() {
+            log.info("hello C");
+        }
+    }
+
+
+    @Slf4j
     static class AToBPostProcessor implements BeanPostProcessor {
 
         @Override
@@ -65,4 +81,17 @@ public class BeanPostProcessorTest {
             return bean;
         }
     }
+
+    @Slf4j
+    static class BToCPostProcessor implements BeanPostProcessor {
+        @Override
+        public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+            log.info("beanName = {} bean = {}", beanName, bean);
+            if (bean instanceof B) {
+                return new C();
+            }
+            return bean;
+        }
+    }
+
 }
