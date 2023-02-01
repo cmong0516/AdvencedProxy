@@ -60,8 +60,13 @@ public class AdvisorTest {
     void advisorTest3() {
         ServiceInterface target = new ServiceImpl();
         ProxyFactory proxyFactory = new ProxyFactory(target);
+
+        // Pointcut 의 구현체를 만들고 MethodMatcher 의 구현체를 만들어 반환하던것을
+        // NameMatchMethodPointcut 에 setMappedNames 로 해결해준다.
         NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
         pointcut.setMappedNames("save");
+
+
         DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor(pointcut, new TimeAdvice());
         proxyFactory.addAdvisor(advisor);
         ServiceInterface proxy = (ServiceInterface) proxyFactory.getProxy();

@@ -43,15 +43,27 @@ public class MultiAdvisorTest {
     void multiAdvisorTest2() {
         //client -> proxy -> advisor2 -> advisor1 -> target
 
+        // advisor1, advisor2 생성.
         DefaultPointcutAdvisor advisor1 = new DefaultPointcutAdvisor(Pointcut.TRUE, new Advice1());
         DefaultPointcutAdvisor advisor2 = new DefaultPointcutAdvisor(Pointcut.TRUE, new Advice2());
 
         //프록시1 생성
+        // 타겟 생성
         ServiceInterface target = new ServiceImpl();
+        // ProxyFactory 에 타겟을 넣어 생성.
         ProxyFactory proxyFactory1 = new ProxyFactory(target);
 
+        // 생성한 proxyFactory 에 addAdvisor() 를 이용하여
+        // 생성한 advisor1, advisor2 추가.
         proxyFactory1.addAdvisor(advisor2);
         proxyFactory1.addAdvisor(advisor1);
+
+        // 실생시
+        // advice2 호출.
+        // advice1 호출.
+        // save 호출.
+
+        // proxyFactory 에서 getProxy() 메서드로 프록시를 얻음.
         ServiceInterface proxy = (ServiceInterface) proxyFactory1.getProxy();
 
         //실행
