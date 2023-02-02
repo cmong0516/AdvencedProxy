@@ -8,8 +8,9 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 
 @Slf4j
 public class PackageLogTracePostProcessor implements BeanPostProcessor {
-
+    // 포인트컷
     private final String basePackage;
+    // 어드바이저
     private final Advisor advisor;
 
     public PackageLogTracePostProcessor(String basePackage, Advisor advisor) {

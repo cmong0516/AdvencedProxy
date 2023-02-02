@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Import;
 public class AutoProxyConfig {
 
 //    @Bean
+    // 스프링은 AnnotationAwareAspectJAutoProxyCreator 라는 빈 후처리기를 자동으로 등록해준다.
     public Advisor advisor1(LogTrace logTrace) {
         //pointcut
         NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();

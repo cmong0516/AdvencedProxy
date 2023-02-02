@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 
 @Slf4j
 public class LogTraceAdvice implements MethodInterceptor {
+    // MethodInterceptor 는 가장 기본적인 어드바이스 타입.
 
     private final LogTrace logTrace;
 
