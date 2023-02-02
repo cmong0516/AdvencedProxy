@@ -36,6 +36,9 @@ public class MultiAdvisorTest {
         //실행
         proxy2.save();
 
+        // 결과
+        // advisor2 -> advisor1 -> save
+
     }
 
     @Test
@@ -68,6 +71,10 @@ public class MultiAdvisorTest {
 
         //실행
         proxy.save();
+
+        // 실행결과는 같은데 프록시 팩토리를 두개 만들 이유가 있을까 ??
+        // 결과는 같고 성능은 같다.
+        // AOP 적용 수만큼 프록시가 생성되는것은 아니다.
 
     }
 
