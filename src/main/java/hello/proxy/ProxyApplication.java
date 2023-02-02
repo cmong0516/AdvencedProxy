@@ -27,8 +27,8 @@ import org.springframework.context.annotation.Import;
 //@Import(ProxyFactoryConfigV1.class)
 //@Import(ProxyFactoryConfigV2.class)
 //@Import(BeanPostProcessorConfig.class)
-@Import(AutoProxyConfig.class)
-//@Import(AopConfig.class)
+//@Import(AutoProxyConfig.class)
+@Import(AopConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.proxy.app")
 // 주의
 // @Configuration 은 @Component 에노태이션을 포함하고 있으므로 컴포넌트 스캔의 대상이 된다.
