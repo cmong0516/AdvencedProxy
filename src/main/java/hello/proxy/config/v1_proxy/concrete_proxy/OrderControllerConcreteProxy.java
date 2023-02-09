@@ -11,6 +11,8 @@ public class OrderControllerConcreteProxy extends OrderControllerV2 {
 
     public OrderControllerConcreteProxy(OrderControllerV2 target, LogTrace logTrace) {
         super(null);
+        // OrderControllerV2 의 기본 생성자가 없고 OrderServiceV2 를 인자로 받는 생성자가 존재한다.
+        // 또 부모의 기능을 사용하진 않기 때문에 super(null) 을 해주어야한다.
         this.target = target;
         this.logTrace = logTrace;
     }
@@ -35,3 +37,5 @@ public class OrderControllerConcreteProxy extends OrderControllerV2 {
         return target.noLog();
     }
 }
+
+// OrderControllerV2 를 상속하는 프록시 클래스를 만든다.

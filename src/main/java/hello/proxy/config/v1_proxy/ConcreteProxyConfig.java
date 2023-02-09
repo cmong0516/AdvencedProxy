@@ -31,3 +31,5 @@ public class ConcreteProxyConfig {
         return new OrderRepositoryConcreteProxy(repositoryImpl, logTrace);
     }
 }
+
+// 구체클래스 기반의 프록시 적용을 위해 target 과 logTrace 를 인자로 받는 프록시 객체들을 반환해주는 빈등록.

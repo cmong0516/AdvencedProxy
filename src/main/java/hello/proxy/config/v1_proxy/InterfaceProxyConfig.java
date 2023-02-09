@@ -30,3 +30,8 @@ public class InterfaceProxyConfig {
     }
 
 }
+
+// InterfaceProxyConfig 를 통해 Bean 등록 할때 interface 타입의 구현체를 proxy 로 변경해준다.
+
+// 프록시 객체는 스프링 컨테이너가 관리하고 자바 힙 메모리에도 올라간다.
+// 실제 객체는 자바 힙 메모리에는 올라가지만 스프링 컨테이너가 관리하지는 않는다.
