@@ -15,6 +15,10 @@ import static org.assertj.core.api.Assertions.*;
 
 @Slf4j
 public class ProxyFactoryTest {
+    // Interface 면 JDK 프록시를
+    // 구체 클래스면 CGLIB 프록시를 사용하는 스프링이 제공하는 ProxyFactory
+    // 부가기능은 Advice 에
+    // Advice 를 이용하여 InvocationHandler 와 MethodInterceptor 가 내부적으로 동작.
 
     @Test
     @DisplayName("인터페이스가 있으면 JDK 동적 프록시 사용")
