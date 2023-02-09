@@ -16,6 +16,8 @@ public class ProxyPatternTest {
         client.execute();
         client.execute();
         client.execute();
+
+        // realSubject.operation(); 의 결과와 같다.
     }
 
     @Test

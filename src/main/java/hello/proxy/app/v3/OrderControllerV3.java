@@ -26,3 +26,5 @@ public class OrderControllerV3 {
     }
 
 }
+
+// V3 는 @Controller , @Service , @Repository 와 같은 @Component 어노테이션을 포함하고 있는 어노테이션들과 컴포넌트 스캔을 사용하여 자동 Bean 등록.
