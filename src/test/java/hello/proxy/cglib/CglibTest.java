@@ -16,6 +16,14 @@ public class CglibTest {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(ConcreteService.class);
         enhancer.setCallback(new TimeMethodInterceptor(target));
+
+        // CGLIB 는 MethodInterceptor 를 구현해서 사용하며
+        // 프록시 생성은 enhancer 에 타겟과 프록시를 등록하고
+        // create() 해서 생성한다.
+
+        // JDK 동적 프록시는 InvocationHandler 를 구현하며
+        // 프록시 생성은 Proxy.newProxyInstance() 로 생성.
+
         ConcreteService proxy = (ConcreteService) enhancer.create();
         log.info("targetClass={}", target.getClass());
         log.info("proxyClass={}", proxy.getClass());

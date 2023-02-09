@@ -7,6 +7,8 @@ import org.springframework.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 @Slf4j
+// JDK 동적 프록시는 InvocationHandler 를 구현
+// CGLIB 를 사용하려면 MethodInterceptor 를 구현.
 public class TimeMethodInterceptor implements MethodInterceptor {
 
     private final Object target;

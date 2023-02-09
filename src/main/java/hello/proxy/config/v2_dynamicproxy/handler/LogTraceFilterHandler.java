@@ -28,6 +28,8 @@ public class LogTraceFilterHandler implements InvocationHandler {
             return method.invoke(target, args);
         }
 
+        // 패턴 매치가 되면 LogTrace 로직을 실행 , 매치되지 않으면 부가기능 외의 핵심기능 로직만 실행.
+
         TraceStatus status = null;
         try {
             String message = method.getDeclaringClass().getSimpleName() + "." +

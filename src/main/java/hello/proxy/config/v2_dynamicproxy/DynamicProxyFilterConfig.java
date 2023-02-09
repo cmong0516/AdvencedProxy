@@ -13,6 +13,9 @@ import java.lang.reflect.Proxy;
 public class DynamicProxyFilterConfig {
 
     private static final String[] PATTERNS = {"request*", "order*", "save*"};
+    // request* , order* , save* 와 매치되면 LogTrace 로직 실행
+    // 매치되지 않으면 기본로직 실행.
+    // no-log 는 매치되지 않으므로 log 가 찍히지 않는다.
 
     @Bean
     public OrderControllerV1 orderControllerV1(LogTrace logTrace) {
