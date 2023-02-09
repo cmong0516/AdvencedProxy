@@ -40,3 +40,4 @@ public class DynamicProxyBasicConfig {
         return proxy;
     }
 }
+// 각 빈을 수동으로 등록하며 프록시를 생성하여 반환하도록 한다.

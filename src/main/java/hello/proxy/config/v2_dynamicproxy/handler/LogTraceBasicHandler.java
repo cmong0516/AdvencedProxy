@@ -6,6 +6,7 @@ import hello.proxy.trace.logtrace.LogTrace;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
+// JDK 동적 프록시를 적용할 것이므로 InvocationHandler 구현
 public class LogTraceBasicHandler implements InvocationHandler {
 
     private final Object target;

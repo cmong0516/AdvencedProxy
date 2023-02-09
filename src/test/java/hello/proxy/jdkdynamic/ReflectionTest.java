@@ -15,13 +15,15 @@ public class ReflectionTest {
 
         //공통 로직1 시작
         log.info("start");
-        String result1 = target.callA(); //호출하는 메서드가 다음
+        String result1 = target.callA();
+        // Hello.callA()
         log.info("result={}", result1);
         //공통 로직1 종료
 
         //공통 로직2 시작
         log.info("start");
-        String result2 = target.callB(); //호출하는 메서드가 다음
+        String result2 = target.callB();
+        // Hello.callB()
         log.info("result={}", result2);
         //공통 로직2 종료
 
@@ -30,7 +32,8 @@ public class ReflectionTest {
 
     @Test
     void reflection1() throws Exception {
-        //클래스 정보
+        // 클래스 정보
+        // hello.proxy.jdkdynamic.ReflectionTest 의 내부클래스 Hello
         Class classHello = Class.forName("hello.proxy.jdkdynamic.ReflectionTest$Hello");
 
         System.out.println("classHello = " + classHello);
@@ -61,7 +64,7 @@ public class ReflectionTest {
         dynamicCall(methodCallB,target);
 
         // invoke
-        // 멀티스레드 환겨에서 데이터 보호를 위해 사용
+        // 멀티스레드 환경에서 데이터 보호를 위해 사용
 
 //        Method methodCallC = classHello.getMethod("callC");
 //        System.out.println("methodCallC = " + methodCallC);
@@ -74,6 +77,8 @@ public class ReflectionTest {
         Object result = method.invoke(target);
         log.info("result={}", result);
     }
+
+    // dynamicCall 은 메서드와 target 을 받아 위의 두 로직을 공통 처리할수 있다.
 
     @Slf4j
     static class Hello {

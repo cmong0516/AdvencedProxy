@@ -6,8 +6,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 @Slf4j
+// JDK 동적 프록시에 적용할 로직은 InvocationHandler 를 구현
 public class TimeInvocationHandler implements InvocationHandler {
 
+    // target 주입.
     private final Object target;
 
     public TimeInvocationHandler(Object target) {
