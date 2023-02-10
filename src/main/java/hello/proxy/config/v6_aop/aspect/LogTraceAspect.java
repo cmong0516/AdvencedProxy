@@ -22,6 +22,7 @@ public class LogTraceAspect {
 
     @Around("execution(* hello.proxy.app..*(..))")
     // @Around 값에 AspectJ 표현식으로 포인트컷 값을 넣어준다.
+    // @Around 가 붙은 메서드가 어드바이스가 된다.
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
         TraceStatus status = null;
         // 실제 호출 대상
