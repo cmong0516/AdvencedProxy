@@ -23,17 +23,21 @@ public class AutoProxyConfig {
     // AspectJExpressionPointcut
     public Advisor advisor1(LogTrace logTrace) {
         //pointcut
+        // 스프링에서 제공하는 NameMatchMethodPointcut 을 통해 request* order* save* 과 일치하면 advice 실행.
         NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
         pointcut.setMappedNames("request*", "order*", "save*");
         //advice
         LogTraceAdvice advice = new LogTraceAdvice(logTrace);
         return new DefaultPointcutAdvisor(pointcut, advice);
+        // Advisor 의 대표적 구현체는 DefaultPointcutAdvisor 에 포인트컷과 Advice 를 넣어 반환한다.
     }
 
 //    @Bean
     public Advisor advisor2(LogTrace logTrace) {
         //pointcut
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+
+        // hello.proxy.app 와 하위 모든 패키지의 모든 메서드.
         pointcut.setExpression("execution(* hello.proxy.app..*(..))");
         //advice
         LogTraceAdvice advice = new LogTraceAdvice(logTrace);
